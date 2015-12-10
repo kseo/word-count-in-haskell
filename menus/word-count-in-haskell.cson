@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle word-count-in-haskell'
+      'command': 'word-count-in-haskell:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'word-count-in-haskell'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'word-count-in-haskell:toggle'
+        }
+      ]
+    ]
+  }
+]
