@@ -25,9 +25,10 @@ module.exports = WordCountInHaskell =
     wordCountInHaskellViewState: @wordCountInHaskellView.serialize()
 
   toggle: ->
-    console.log 'WordCountInHaskell was toggled!'
-
     if @modalPanel.isVisible()
       @modalPanel.hide()
     else
+      editor = atom.workspace.getActiveTextEditor()
+      words = editor.getText().split(/\s+/).length
+      @wordCountInHaskellView.setCount(words)
       @modalPanel.show()
