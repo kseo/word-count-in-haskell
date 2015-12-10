@@ -1,4 +1,5 @@
 WordCountInHaskellView = require './word-count-in-haskell-view'
+HaskellWordCount = require '../hs/HaskellWordCount.js'
 {CompositeDisposable} = require 'atom'
 
 module.exports = WordCountInHaskell =
@@ -29,6 +30,6 @@ module.exports = WordCountInHaskell =
       @modalPanel.hide()
     else
       editor = atom.workspace.getActiveTextEditor()
-      words = editor.getText().split(/\s+/).length
+      words = HaskellWordCount.countWord(editor.getText())
       @wordCountInHaskellView.setCount(words)
       @modalPanel.show()
